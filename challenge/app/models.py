@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 # Create your models here.
 
@@ -24,6 +25,16 @@ class Schedule(models.Model):
     deadline = models.DateTimeField(default=None, null=True)
 
 
+class Calendar(models.Model):
+    """ Calendar model """
+
+    name = models.CharField(max_length=100)
+    calendar_id = models.CharField(max_length=20)
+
+
+    def __str__(self):
+        return self.name
+
 
 class Task(models.Model):
     """ Task model """
@@ -35,13 +46,3 @@ class Task(models.Model):
     calendar = models.ForeignKey(
         Calendar, on_delete=models.DO_NOTHING, default=None, null=True,
         related_name="tasks")
-
-class Calendar(models.Model):
-    """ Calendar model """
-
-    name = models.CharField(max_length=100)
-    calendar_id = models.CharField(max_length=20)
-
-
-    def __str__(self):
-        return self.name

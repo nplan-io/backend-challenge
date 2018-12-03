@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
+    'challenge.app',
 ]
 
 MIDDLEWARE = [
@@ -31,7 +33,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'challenge.urls'
 
 TEMPLATES = [
     {
@@ -49,17 +51,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app.wsgi.application'
-
-
 # Database
 # Use a Postgres DB
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'backend-challenge',
+        'NAME': 'backend-challenge.sqlite',
     }
+}
+
+GRAPHENE = {
+    'SCHEMA': 'challenge.schema.schema'
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -88,3 +91,5 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+CELERY_BROKER_URL = 'redis://localhost:6379'

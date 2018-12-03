@@ -1,5 +1,5 @@
-from app.app.tasks import process_schedule
-import app.app.models as mod
+import challenge.app.models as mod
+from graphene_django import DjangoObjectType
 
 
 # Write your unit test here using PyTest.
