@@ -56,16 +56,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Use a Postgres DB
 
 DATABASES = {
-DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '-',
-        'USER': '-',
-        'PASSWORD': '-',
-        'HOST': '-',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'backend-challenge',
     }
-}
 }
 
 AUTH_PASSWORD_VALIDATORS = [
